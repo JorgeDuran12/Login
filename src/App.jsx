@@ -54,7 +54,7 @@ const App = () => {
 
       <h2>Bienvenido al sistema de ubicación para zonas públicas WIFI</h2>
 
-        <label htmlFor="username">Username</label>git 
+        <label htmlFor="username">Username</label>
         <input type="text" placeholder='Enter Username' id="user" className='user' onChange={ (e)=> setUsu(e.target.value)}/>
 
         <label htmlFor="password">Password</label>
