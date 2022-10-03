@@ -2,7 +2,10 @@
 import React, { useState } from 'react'
 import '../src/App.css';
 import logoo from './assets/img/Letra C.jpg';
+import swal from 'sweetalert';
+import Menu from '../src/Components/Menu';
 
+//Reto #1
 
 var usuario = "1007";
 var contraseña = "7001";
@@ -30,17 +33,29 @@ const App = () => {
       console.log(setPass);
 
       if ([usu, pass, captch].includes('')) {
-        alert("Los campos son obligatorios")
+        swal({
+          title:"Los campos son obligatorios",
+          icon:"error",
+          button:"Aceptar"
+        });
       }else{
 
         if (usu!=usuario || pass != contraseña || captch != total.toString()) {
           setlogin("false");
-          alert("Error al ingresar");
+          swal({
+            icon:"error",
+            title:"No es posible ingresar",
+            buttons:"Aceptar"
+          });
         }
         if (usu === usuario && pass === contraseña & captch === total.toString()) {
           setlogin("true");
           document.getElementById("login on").style.display = "none";
-          alert("Sesion iniciada");
+          swal({
+            icon:"success",
+            title:"Bienvenido",
+            buttons:"Aceptar"
+          });
         }
       }
     }
@@ -55,20 +70,21 @@ const App = () => {
       <h2>Bienvenido al sistema de ubicación para zonas públicas WIFI</h2>
 
         <label htmlFor="username">Username</label>
-        <input type="text" placeholder='Enter Username' id="user" className='user' onChange={ (e)=> setUsu(e.target.value)}/>
+        <input type="number" placeholder='Enter Username' id="user" className='user'inputMode='numeric' autoComplete='off' onChange={ (e)=> setUsu(e.target.value)}/>
 
         <label htmlFor="password">Password</label>
         <input type="password" placeholder='Enter Password' id="passe" className='passe' onChange={ (e) => setPass(e.target.value)} />
 
-        <h5 className='cent'>
-          Seguridad Captcha <br /> haga la suma del ultimo digito del usuario y el primer digito de la contraseña:  {usu.slice(-1)} + {pass.slice(0,1)}
-        </h5>
-
-        <input type="text" id='seguridad_captch' className='seguridad' onChange={ (e) => setCaptch(e.target.value)}/>
+        <label className='lin'>Seguridad Captcha</label>
+        <h5>haga la suma del ultimo digito del usuario y el primer digito de la contraseña:  {usu.slice(-1)} + {pass.slice(0,1)}</h5>
+        <input type="number" id='seguridad_captch' className='seguridad' autoComplete='off' onChange={ (e) => setCaptch(e.target.value)}/>
 
         <input type="submit" value='Ingresar' onClick={inicio}/>
 
       </form>
+
+      <Menu/>
+
 
     </div>
   )
