@@ -61,18 +61,20 @@ const App = () => {
         }
         if (usu === usuario && pass === contraseña & captch === total.toString()) {
           setlogin("true");
-          document.getElementById("login on").style.display = "none";
+          // document.getElementById("login on").style.display = "none";
           swal({
             icon:"success",
             title:"Bienvenido",
             buttons:"Aceptar"
-            
           });
-        nav('/menu')
+
+          nav('/menu')
+        
 
         }
       }
     }
+    
 
 
   return (
@@ -91,7 +93,7 @@ const App = () => {
         <input type="password" placeholder='Enter Password' id="passe" className='passe' onChange={ (e) => setPass(e.target.value)} />
 
         <label className='lin'>Seguridad Captcha</label>
-        <h5>haga la suma del ultimo digito del usuario y el primer digito de la contraseña:  {usu.slice(-1)} + {pass.slice(0,1)}</h5>
+        <h5>Haga la suma del ultimo digito del usuario y el primer digito de la contraseña:  {usu.slice(-1)} + {pass.slice(0,1)}</h5>
         
         <input type="number" id='seguridad_captch' className='seguridad' autoComplete='off' onChange={ (e) => setCaptch(e.target.value)}/>
 
