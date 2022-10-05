@@ -14,11 +14,7 @@ var contraseña = "7001";
 var uldigts = usuario.slice(-1);
 var firdits = contraseña.slice(0,1);
 
-console.log(uldigts);
-console.log(firdits);
-
 var total = Number(uldigts) + Number(firdits);
-console.log(total);
 
 const App = () => {
 
@@ -38,8 +34,6 @@ const App = () => {
 
     const clickMenu = () => {
 
-      console.log(setUsu);
-      console.log(setPass);
 
       if ([usu, pass, captch].includes('')) {
         swal({
