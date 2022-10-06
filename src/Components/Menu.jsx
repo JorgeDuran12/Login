@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import on from '../assets/img/jk.jpg'
 import '../assets/css/Menu.css'
 import { useNavigate } from 'react-router-dom'
-import swal from 'sweetalert'
+import Swal from 'sweetalert2'
 
 const Menu = () => {
 
@@ -13,15 +13,36 @@ const Menu = () => {
 
   const  nav = useNavigate ()
   const add = () => {
-  nav('/add')
-  
+    Swal.fire({
+      title:'Bienvenido a la adivinanza',
+      timer:1400,
+      showConfirmButton: false,
+      padding:'70px',
+      color: 'black',
+      background: '#FFC300',
+
+    })
+    setTimeout(() => {
+      nav('/add')
+    }, 1500);
   }
 
   const men = () => {
-    swal({
-      title: 'Hasta pronto'
+
+    Swal.fire({
+      title: 'Hasta  pronto',
+      timer: 1300,
+      showConfirmButton: false,
+      padding:'70px',
+      color: 'black',
+      background: '#FFC300',
+
     })
-    nav('/')
+
+    setTimeout(() => {
+      nav('/')
+    },2000 );   
+    
   }
 
 
@@ -33,8 +54,6 @@ const Menu = () => {
     <img src= {on} alt="Usuario" className='logo' />
     
     <form id='menu-on' onSubmit={Submit2}>
-
-      <label htmlFor="Bien">Bienvenido</label>
       <label htmlFor="Menu">Menu</label>
       <br />
 

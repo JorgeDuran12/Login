@@ -24,6 +24,11 @@ body {
     margin-bottom: 15px;
   }
 
+  #add-box button{
+    width: 40%;
+    margin-bottom: 15px;
+  }
+
 #add-box input[type="text"] {
     border: none;
     border-bottom: 1px solid #fff;
@@ -44,6 +49,7 @@ body {
     color: #fff;
     font-size: 18px;
     border-radius: 20px;
+    margin: 10px;
   }
 
   #add-box button[type="submit"]:hover {
@@ -58,8 +64,18 @@ body {
     padding: 0;
     font-weight: bold;
     display: block;
-    font-size:x-large;
+    font-size:20px;
     text-align: center;
     line-height:5vh;
 
+  }
+
+  #add-box h2 {
+    margin: 1px;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+    font-size:40px;
+    text-align: center;
+ 
   }

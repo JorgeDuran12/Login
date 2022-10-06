@@ -2,9 +2,9 @@
 import React, { useState } from 'react'
 import '../src/App.css';
 import logoo from './assets/img/Letra C.jpg';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom';
-import Menu from './Components/Menu';
+
 
 //Reto #1
 
@@ -36,34 +36,40 @@ const App = () => {
 
 
       if ([usu, pass, captch].includes('')) {
-        swal({
+        Swal.fire({
           title:"Los campos son obligatorios",
           icon:"error",
-          button:"Aceptar"
-          
+          showConfirmButton: false,
+          timer: 1500
         });
 
       }else{
 
         if (usu!=usuario || pass != contraseña || captch != total.toString()) {
           setlogin("false");
-          swal({
+          Swal.fire({
             icon:"error",
             title:"No es posible ingresar",
-            buttons:"Aceptar"
+            showConfirmButton: false,
+            timer: 1500
           });
         }
         if (usu === usuario && pass === contraseña & captch === total.toString()) {
           setlogin("true");
-          // document.getElementById("login on").style.display = "none";
-          swal({
+          // document.getElementById("login-box").style.display = "none";
+          Swal.fire({
             icon:"success",
             title:"Bienvenido",
-            buttons:"Aceptar"
+            showConfirmButton: false,
+            timer: 1150
+            
           });
-
-          nav('/menu')
-        
+          
+          setTimeout(() => {
+            
+            nav('/menu')
+          }, 1000);
+         
 
         }
       }
@@ -95,7 +101,6 @@ const App = () => {
 
       </form>
 
-      { login == 'true' &&  <Menu />  }
 
     </div>
   )
