@@ -66,8 +66,9 @@ const [cont, setcont] = useState(0);
         
         const  nav = useNavigate ()
         const nw = () => {
+            
             nav('/menu')
-
+          
           }
       
 
@@ -78,7 +79,8 @@ const [cont, setcont] = useState(0);
 
       <form id='add' onSubmit={ Submit3 }>  
 
-      <h2>Adivinanza</h2> 
+      <label  className='h'>Adivinanza</label>
+      <br />
       <label>¿Cuál es el numero secreto entre [0,10]?</label>
       <br />
       <input type="text" placeholder='Ingresa un numero' id='number' autoComplete='off'value={ ValorInput } onChange={(e) => {setValorInput(e.target.value)}}/>
